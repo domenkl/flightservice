@@ -41,7 +41,7 @@ public class FlightService {
         if (availableSeats >= quantity) {
             flight.setAvailableSeats(availableSeats - quantity);
             repository.save(flight);
-            return "Booked %d tickets for flights from %s to %s".formatted(quantity, flight.getOrigin(), flight.getDestination());
+            return "Booked %d ticket(s) for flight from %s to %s.".formatted(quantity, flight.getOrigin(), flight.getDestination());
         }
         if (availableSeats == 0) return "Flight is full.";
         return "Could not order %d tickets. There are only %d empty seats.".formatted(quantity, availableSeats);
