@@ -15,7 +15,7 @@ public class OrderController {
 
     @PostMapping("/order")
     public String acceptOrder(Model model, @RequestParam(name = "id") Long id, @RequestParam(name = "quantity") int quantity) {
-        model.addAttribute("orderMessage", flightService.tryOrderFlight(id, quantity));
+        model.addAttribute("order", flightService.tryOrderFlight(id, quantity));
         return "order";
     }
 }
