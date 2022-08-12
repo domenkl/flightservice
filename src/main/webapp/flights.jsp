@@ -6,7 +6,8 @@
     <body>
         <%@include file="header.html"%>
         <div class="container justify-content-center flex-box d-flex">
-            <div class="flight-select d-flex justify-content-center">
+            <div class="flight-select d-flex flex-column justify-content-center">
+                <h2>Search for flights</h2>
                 <form action="flights" method="get" class="flex-box d-flex flex-row">
                     <span>Origin:</span>
                     <label>
@@ -86,12 +87,13 @@
             border-collapse: collapse;
             border: 1px solid #081c2f;
             margin-top: 50px;
+            color: #cccccc;
         }
         .flights th {
             width: 140px;
             height: 40px;
             text-align: center;
-            background-color: #daf5ff;
+            background-color: #525252;
             font-family: 'Arimo', sans-serif;
             font-size: 18px;
             border-bottom: 1px solid #222222;
@@ -105,15 +107,17 @@
             font-family: 'Arimo', sans-serif;
             font-size: 18px;
             color: #333333;
-            background-color: #cfe6ee;
+            background-color: #f3f3f3;
         }
         .flights td:nth-child(even) {
-            background-color: #e1f7ff;
+            background-color: #ebebeb;
         }
         .flight-select {
-            margin-top: 50px;
+            margin-top: 30px;
             justify-content: center;
             display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .flight-select select {
             width: 150px;
@@ -175,6 +179,15 @@
         }
         .container {
             margin: auto;
+        }
+        .flight-select h2 {
+            text-align: center;
+            font-family: 'Arimo', sans-serif;
+            color: #222222;
+            text-transform: uppercase;
+        }
+        .form-select {
+            margin-top: 20px;
         }
     </style>
 </html>

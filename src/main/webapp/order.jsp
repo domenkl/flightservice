@@ -10,11 +10,28 @@
         <div class="page">
             <div class="order-message">
                 <span class="message">
-                    <c:out value="${orderMessage}" />
+                    <c:out value="${order.message}" />
                 </span>
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+        if (${order.accepted}) {
+            let tickets = JSON.parse(sessionStorage.getItem("tickets"));
+            if (tickets === null) {
+                tickets = [{id:"${order.flightNumber}", quantity: ${order.quantity}}];
+                sessionStorage.setItem("tickets", JSON.stringify(tickets));
+            } else {
+                const addedTicketIndex = tickets.findIndex( t => t.id === "${order.flightNumber}");
+                if (addedTicketIndex === -1) {
+                    tickets.push({id:"${order.flightNumber}", quantity: ${order.quantity}});
+                } else {
+                    tickets[addedTicketIndex].quantity += ${order.quantity};
+                }
+                sessionStorage.setItem("tickets", JSON.stringify(tickets));
+            }
+        }
+    </script>
     <style>
         .order-message {
             display: flex;
